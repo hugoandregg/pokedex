@@ -1,38 +1,56 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #f1f17f;
 }
 
-.App-link {
-  color: #61dafb;
+main {
+  display: inline-block;
+  margin-top: 2%;
+  position: relative;
+  font-family: "Press Start 2P", cursive;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pokedex {
+  width: 100%;
+  max-width: 800px;
+}
+
+.poke-bckg {
+  position: absolute;
+  left: 31.8%;
+  bottom: 58.5%;
+  width: 35.1%;
+  height: 34.65%;
+  border-radius: 5.5px;
+}
+
+.pokemon-img {
+  position: absolute;
+  bottom: 63%;
+  left: 43%;
+  transform: translate(-13%, 5%);
+  height: 20%;
+}
+
+.pokemon-data {
+  position: absolute;
+  font-weight: 600;
+  color: #808080;
+  top: 63%;
+  left: 36%;
+  font-size: clamp(6px, 1.75vw, 13px);
+}
+
+.pokemon-name {
+  color: #4682b4;
+  text-transform: capitalize;
 }
