@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import PokeList from "./components/PokeList";
 
-function App() {
+const App: React.FC = () => {
   return (
     <main>
       <img
@@ -18,6 +18,6 @@ function App() {
       ></img>
     </main>
   );
-}
+};
 
 export default App;

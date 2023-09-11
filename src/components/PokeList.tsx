@@ -5,14 +5,14 @@ import PokeImage from "./PokeImage";
 const PokeList: React.FC = () => {
   const listInnerRef = useRef(null);
   const [data, setData] = useState<any>([]);
-  const [currPage, setCurrPage] = useState(0);
-  const [prevPage, setPrevPage] = useState(-1);
+  const [currOffset, setCurrOffset] = useState(0);
+  const [prevOffset, setPrevOffset] = useState(-1);
   const [pokeImg, setPokeImg] = useState("");
   const url = "https://pokeapi.co/api/v2/pokemon";
 
   useEffect(() => {
     const fetchData = () => {
-      fetch(url + `?offset=${currPage}&limit=20`)
+      fetch(url + `?offset=${currOffset}&limit=20`)
         .then((response) => response.json())
         .then((responseData) => {
           setData([...data, ...responseData.results]);
@@ -20,21 +20,19 @@ const PokeList: React.FC = () => {
         .catch((error) => {
           console.error("Error fetching data:", error);
         });
-      setPrevPage(currPage);
+      setPrevOffset(currOffset);
     };
-    if (prevPage !== currPage) {
+    if (prevOffset !== currOffset) {
       fetchData();
     }
-  }, [url, currPage, prevPage, data]);
+  }, [url, currOffset, prevOffset, data]);
 
   const onScroll = () => {
-    if (listInnerRef.current) {
-      if (
-        window.innerHeight + document.documentElement.scrollTop ===
-        document.documentElement.offsetHeight
-      ) {
-        setCurrPage(currPage + 20);
-      }
+    if (
+      window.innerHeight + document.documentElement.scrollTop ===
+      document.documentElement.offsetHeight
+    ) {
+      setCurrOffset(currOffset + 20);
     }
   };
 
